@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html> 
+<head>
+    <title>CodeReview</title>
+    <link rel='stylesheet' type='text/css' href='styles.css'>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCF5TVpHOKOq778R7mxX3xqNWB-RKwc52o&callback=myMap"></script>
+</head>
+<header>
+    <ul>
+        <li><a href="page1.html">page1</a></li>
+        <li><a href="page2.html">page2</a></li>
+        <li><a href="page3.html">page3</a></li>
+    </ul>
+    <hr>
+</header>
+
+<body>
+    <div id="googlemaps"></div>
+    <script>
+
+    var locations = [
+        ['<h4>Vienna</h4>', 48.1896904,16.3340331],
+        ['<h4>Toronto</h4>', 43.7181552, -79.5184871],
+
+    ];
+
+    var iconURLPrefix = 'http://maps.google.com/mapfiles/ms/icons/';
+
+    var icons = [
+        iconURLPrefix + 'red-dot.png',
+        iconURLPrefix + 'green-dot.png',
+    ]
+    var iconsLength = icons.length;
+
+    var map = new google.maps.Map(document.getElementById("googlemaps"), {
+        zoom: 10,
+        center: new google.maps.LatLng(48.1896904,16.3340331),
+        mapTypeId: google.maps.MapTypeId.ROADMAP,
+        mapTypeControl: false,
+        streetViewControl: true,
+        panControl: false,
+        zoomControlOptions: {
+            position: google.maps.ControlPosition.LEFT_BOTTOM
+        }
+    });
+
+    var infowindow = new google.maps.InfoWindow({
+        maxWidth: 160
+    });
+
+    var markers = new Array();
+
+    var iconCounter = 0;
+
+    for (var i = 0; i < locations.length; i++) {
+        var marker = new google.maps.Marker({
+            position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+            map: map,
+            icon: icons[iconCounter]
+        });
+
+        markers.push(marker);
+
+        google.maps.event.addListener(marker, 'click', (function(marker, i) {
+            return function() {
+                infowindow.setContent(locations[i][0]);
+                infowindow.open(map, marker);
+            }
+        })(marker, i));
+
+        iconCounter++;
+
+        if (iconCounter >= iconsLength) {
+            iconCounter = 0;
+        }
+    }
+
+    function autoCenter() {
+
+        var bounds = new google.maps.LatLngBounds();
+        for (var i = 0; i < markers.length; i++) {
+            bounds.extend(markers[i].position);
+        }
+
+        map.fitBounds(bounds);
+    }
+    autoCenter();
+</script>
+
+<footer>
+        &copy; Gregor Mosthammer
+</footer>
+</body>
+
+</html>

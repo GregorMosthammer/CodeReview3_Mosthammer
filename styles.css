@@ -1,0 +1,71 @@
+body {
+        background-color: lightgrey;
+    }
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    padding: 8px;
+    background-color: lightgrey;
+}
+
+#table {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        height: 860px;
+        margin-left: 5%;
+
+    }
+
+a {
+        flex-basis: 20vw;
+        padding: 10px;
+    }
+
+#profil {
+    padding: 10px;
+}
+
+
+
+#googlemaps {
+    width:1250px;
+    height:500px;
+} 
+
+footer{
+    display: flex;
+    flex-direction: row;
+    height: 5vh;
+}
+
+#footerFirstPage{
+    display: flex;
+    flex-direction: row;
+    height: 5vh;
+    margin-top: 125px;
+}
+
+
+@media screen and (max-width:1000px) {
+    #table {
+        flex-direction: column;
+    }
+}
+
+@media screen and (min-width: 601px) {
+    hr {
+    display:none;
+    }
+}

@@ -1,0 +1,82 @@
+<!DOCTYPE html> 
+<html>
+
+<head>
+    <title>CodeReview</title>
+    <link rel='stylesheet' type='text/css' href='styles.css'>
+</head>
+
+<header>
+
+<ul>
+  <li><a href="page1.html">page1</a></li>
+  <li><a href="page2.html">page2</a></li>
+  <li><a href="page3.html">page3</a></li>
+
+</ul>
+<hr>
+</header>
+
+<body>
+
+    <div id='table'>
+        <a>First Name</a>
+        <a>Last Name</a>
+        <a>Email</a>
+        <a id="profil">Profilbild</a>
+    </div>
+
+
+<div id="footerFirstPage">
+ &copy; Gregor Mosthammer
+</div>
+
+
+    <script>
+    var employees = [{
+        "FirstName": "Thomas",
+        "LastName": "Mandorfer",
+        "Email": "a.müller@gmx.at",
+        "Profilbild": "profil.png",
+    }, {
+        "FirstName": "Cecilia",
+        "LastName": "Tanzer",
+        "Email": "j.mustermann@gmail.com",
+		"Profilbild": "profil.png",
+    }, {
+        "FirstName": "Florian",
+        "LastName": "Mach",
+        "Email": "susi.hundelover95@hotmail.com",
+        "Profilbild": "profil.png",
+
+    }, {
+        "FirstName": "Mathias",
+        "LastName": "Böhner",
+        "Email": "max.forster@gmx.at",
+        "Profilbild": "profil.png",
+    }, {
+        "FirstName": "Martin",
+        "LastName": "Ryzak",
+        "Email": "tobias.strauch@gmail.com",
+        "Profilbild": "profil.png",
+    }, {
+        "FirstName": "Omar",
+        "LastName": "Alzohaili",
+        "Email": "maria.magdalena@yahoo.de",
+        "Profilbild": "profil.png",
+    }]
+
+
+    for (i = 0; i < employees.length; i++) {
+        document.getElementById("table").innerHTML += '<a>' + employees[i].FirstName + '</a>';
+        document.getElementById("table").innerHTML += '<a>' + employees[i].LastName + '</a>';
+        document.getElementById("table").innerHTML += '<a>' + employees[i].Email+ '</a>';
+        document.getElementById("table").innerHTML += '<img src=' + employees[i].Profilbild+ '>';
+
+    }
+    </script>
+</body>
+
+
+
+</html>

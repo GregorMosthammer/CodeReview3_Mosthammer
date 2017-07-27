@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>CodeReview3_Mosthammer</title>
+	<link rel='stylesheet' type='text/css' href='styles.css'>
+</head>
+
+<header>
+
+<ul>
+  <li><a href="page1.html">page1</a></li>
+  <li><a href="page2.html">page2</a></li>
+  <li><a href="page3.html">page3</a></li>
+
+</ul>
+<hr>
+</header>
+
+<body>
+<div class="content">
+
+<input type="text" id="name">Put in your name </input>
+<input type="number" id="age">Put in your age </input> <br>
+
+<input id="sex" type="radio" name="typ" value="male">male<br>
+<input id="sex" type="radio" name="typ" value="female">female<br>
+
+<select id="Country">
+            <option value="germany">Germany</option>
+            <option value="austria">Austria</option>
+            <option value="switzerland">Switzerland</option>
+            <option value="italy">Italy</option>
+</select>
+<br> Please enter you're cars horsepower:
+        <br>
+        <input type="number" name="horsepower" id="horse">
+
+
+<button onclick="getData(); tryCatch()">Calculate price</button>
+        <br>
+
+    
+    <p id='result'></p>
+    <p id="message"></p>
+    
+<script>
+
+
+
+function getData() {
+    var nameField = document.getElementById('Country').value;
+
+    if (nameField == "italy") {
+    	document.getElementById("result").innerHTML ="10% Rabatt";
+    } else { document.getElementById("result").innerHTML ="kein Rabatt";
+
+}
+}
+
+
+function tryCatch() {
+        var inside = document.getElementById("age").value;
+        try{
+        if(inside == "")  throw "empty";
+}
+catch(err) {
+        message.innerHTML = "Input is " + err;
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+	
+
+</script>
+
+
+
+<!--
+
+<footer>
+ &copy; Gregor Mosthammer
+</footer> -->
+</body>
+</html>
